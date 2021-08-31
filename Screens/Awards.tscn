@@ -1,0 +1,180 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/TSCN/Header.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/Awards.gd" type="Script" id=3]
+[ext_resource path="res://Assets/ButtonTheme.tres" type="StyleBox" id=4]
+[ext_resource path="res://Assets/ButtonPressedTheme.tres" type="StyleBox" id=5]
+[ext_resource path="res://theme.tres" type="Theme" id=6]
+[ext_resource path="res://Assets/Back.tres" type="StyleBox" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 23
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 2 )
+
+[node name="Awards" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_left = 0.0133333
+anchor_top = 0.0859375
+anchor_right = 0.986667
+anchor_bottom = 0.992188
+mouse_filter = 2
+theme = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Header" parent="." instance=ExtResource( 1 )]
+anchor_right = 1.0
+anchor_bottom = 0.078
+margin_right = 0.0
+margin_bottom = 0.127998
+head = "Awards"
+
+[node name="Dark" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.815686 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GetName" type="Popup" parent="."]
+anchor_left = 0.12
+anchor_top = 0.273438
+anchor_right = 0.88
+anchor_bottom = 0.610352
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Back" type="Panel" parent="GetName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GetName"]
+anchor_left = 0.0701754
+anchor_top = 0.765217
+anchor_right = 0.929825
+anchor_bottom = 0.921739
+custom_constants/separation = 23
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Cancel" type="Button" parent="GetName/HBoxContainer"]
+margin_right = 184.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+theme = ExtResource( 6 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Done" type="Button" parent="GetName/HBoxContainer"]
+margin_left = 207.0
+margin_right = 392.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+theme = ExtResource( 6 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
+text = "Done"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Award" type="LineEdit" parent="GetName"]
+anchor_left = 0.122807
+anchor_top = 0.0695652
+anchor_right = 0.859649
+anchor_bottom = 0.264094
+margin_bottom = -7.62939e-06
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+placeholder_text = "Award"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="LineEdit" parent="GetName"]
+anchor_left = 0.122807
+anchor_top = 0.305631
+anchor_right = 0.859649
+anchor_bottom = 0.49408
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+placeholder_text = "Description"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Date" type="LineEdit" parent="GetName"]
+anchor_left = 0.122807
+anchor_top = 0.521169
+anchor_right = 0.859649
+anchor_bottom = 0.709618
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+placeholder_text = "dd/mm/yyyy"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Add" type="Button" parent="."]
+anchor_left = 0.16
+anchor_top = 0.859375
+anchor_right = 0.86
+anchor_bottom = 0.93457
+rect_pivot_offset = Vector2( -824, -464 )
+size_flags_horizontal = 3
+theme = ExtResource( 6 )
+custom_fonts/font = SubResource( 3 )
+text = "Add"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="GetName/HBoxContainer/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="pressed" from="GetName/HBoxContainer/Done" to="." method="_on_Done_pressed"]
+[connection signal="pressed" from="Add" to="." method="_on_Add_pressed"]

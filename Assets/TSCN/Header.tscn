@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/back.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Header.gd" type="Script" id=2]
+[ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://theme.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+border_width_left = 5
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="Header" type="Control"]
+anchor_right = 1.013
+anchor_bottom = 0.062
+margin_right = -7.79999
+margin_bottom = 0.511997
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Border" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 8.0
+theme = ExtResource( 4 )
+
+[node name="Head" type="Label" parent="Border"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.152941, 0.317647, 0.619608, 1 )
+text = "Default"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="HBoxContainer" parent="Border"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="Border/Container"]
+self_modulate = Color( 0.152941, 0.317647, 0.619608, 1 )
+margin_right = 63.0
+margin_bottom = 72.0
+focus_mode = 0
+theme = ExtResource( 4 )
+icon = ExtResource( 1 )
+flat = true
+
+[node name="VSeparator" type="VSeparator" parent="Border/Container"]
+visible = false
+margin_left = 64.0
+margin_right = 68.0
+margin_bottom = 72.0
+custom_styles/separator = SubResource( 2 )
+
+[connection signal="pressed" from="Border/Container/Back" to="." method="_on_Back_pressed"]

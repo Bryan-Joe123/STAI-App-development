@@ -1,0 +1,207 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/TSCN/Header.tscn" type="PackedScene" id=1]
+[ext_resource path="res://theme.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/Settings.gd" type="Script" id=3]
+[ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/ButtonTheme.tres" type="StyleBox" id=5]
+[ext_resource path="res://Assets/ButtonPressedTheme.tres" type="StyleBox" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 44
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 44
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 49
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 4 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" parent="." instance=ExtResource( 1 )]
+anchor_left = 0.0133333
+anchor_top = 0.0078125
+anchor_right = 0.986667
+anchor_bottom = 0.0703125
+margin_right = 0.0
+margin_bottom = 0.0
+head = "Settings"
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_left = 0.0133333
+anchor_top = 0.703125
+anchor_right = 0.986667
+anchor_bottom = 0.976563
+mouse_filter = 2
+custom_constants/separation = 18
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="AboutMe" type="Button" parent="Container"]
+margin_right = 584.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
+text = "About Me"
+
+[node name="Logout" type="Button" parent="Container"]
+margin_top = 149.0
+margin_right = 584.0
+margin_bottom = 280.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "Logout"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CheckButton" type="CheckButton" parent="."]
+anchor_left = 0.0266667
+anchor_top = 0.078125
+anchor_right = 0.613333
+anchor_bottom = 0.157227
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_disabled = Color( 0.239216, 0.537255, 1, 1 )
+custom_colors/font_color_hover_pressed = Color( 0.239216, 0.537255, 1, 1 )
+custom_colors/font_color = Color( 0.239216, 0.537255, 1, 1 )
+custom_colors/font_color_hover = Color( 0.239216, 0.537255, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.239216, 0.537255, 1, 1 )
+text = "Dark Mode"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Dark" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.815686 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GetName" type="Popup" parent="."]
+anchor_left = 0.0333333
+anchor_top = 0.320313
+anchor_right = 0.966667
+anchor_bottom = 0.632813
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Back" type="Panel" parent="GetName"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GetName"]
+anchor_left = 0.07
+anchor_top = 0.609
+anchor_right = 0.93
+anchor_bottom = 0.856
+margin_left = 0.0799999
+margin_top = -0.0250092
+margin_right = -0.0800171
+margin_bottom = -1.60002
+custom_constants/separation = 23
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="GetName/HBoxContainer"]
+margin_right = 229.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = SubResource( 4 )
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Done" type="Button" parent="GetName/HBoxContainer"]
+margin_left = 252.0
+margin_right = 481.0
+margin_bottom = 77.0
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = SubResource( 4 )
+text = "Confirm"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cancel" type="Button" parent="GetName"]
+anchor_left = 0.3
+anchor_top = 0.204545
+anchor_right = 0.703508
+anchor_bottom = 0.444545
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = SubResource( 4 )
+text = "Logout??"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SpinBox" type="SpinBox" parent="."]
+margin_left = 24.0
+margin_top = 160.0
+margin_right = 552.0
+margin_bottom = 248.0
+theme = ExtResource( 2 )
+min_value = 40.0
+max_value = 50.0
+value = 40.0
+align = 1
+prefix = "FontSize:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Container/AboutMe" to="." method="_on_AboutMe_pressed"]
+[connection signal="pressed" from="Container/Logout" to="." method="_on_Logout_pressed"]
+[connection signal="toggled" from="CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="pressed" from="GetName/HBoxContainer/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="pressed" from="GetName/HBoxContainer/Done" to="." method="_on_Done_pressed"]
+[connection signal="value_changed" from="SpinBox" to="." method="_on_SpinBox_value_changed"]

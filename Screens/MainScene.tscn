@@ -1,0 +1,133 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://theme.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 69
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 44
+font_data = ExtResource( 2 )
+
+[node name="MainScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -1117.5, 82.014 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Control" parent="."]
+anchor_top = -0.015625
+anchor_right = 1.0
+anchor_bottom = 0.359375
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Logo"]
+anchor_right = 1.0
+anchor_bottom = 0.687
+margin_bottom = 0.511963
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 1 )
+text = "E-Portfolio"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="."]
+anchor_left = 0.0133333
+anchor_top = 0.226563
+anchor_right = 0.986667
+anchor_bottom = 0.984375
+mouse_filter = 2
+custom_constants/separation = 18
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="TimeTable" type="Button" parent="Container"]
+margin_right = 584.0
+margin_bottom = 114.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "TimeTable"
+
+[node name="Task" type="Button" parent="Container"]
+margin_top = 132.0
+margin_right = 584.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Task"
+
+[node name="Skills" type="Button" parent="Container"]
+margin_top = 264.0
+margin_right = 584.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Skills"
+
+[node name="Awards" type="Button" parent="Container"]
+margin_top = 396.0
+margin_right = 584.0
+margin_bottom = 510.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Awards & Achievements"
+
+[node name="PersonalDetails" type="Button" parent="Container"]
+margin_top = 528.0
+margin_right = 584.0
+margin_bottom = 642.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Personal Details"
+
+[node name="Settings" type="Button" parent="Container"]
+margin_top = 660.0
+margin_right = 584.0
+margin_bottom = 775.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="Container/TimeTable" to="." method="_on_TimeTable_pressed"]
+[connection signal="pressed" from="Container/Task" to="." method="_on_Task_pressed"]
+[connection signal="pressed" from="Container/Skills" to="." method="_on_Skills_pressed"]
+[connection signal="pressed" from="Container/Awards" to="." method="_on_Awards_pressed"]
+[connection signal="pressed" from="Container/PersonalDetails" to="." method="_on_PersonalDetails_pressed"]
+[connection signal="pressed" from="Container/Settings" to="." method="_on_Settings_pressed"]

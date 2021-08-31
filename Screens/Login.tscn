@@ -1,0 +1,312 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/Login.gd" type="Script" id=2]
+[ext_resource path="res://Assets/ButtonPressedTheme.tres" type="StyleBox" id=3]
+[ext_resource path="res://Assets/ButtonTheme.tres" type="StyleBox" id=4]
+[ext_resource path="res://Assets/outline_warning_white_48dp.png" type="Texture" id=5]
+[ext_resource path="res://Logo.png" type="Texture" id=6]
+[ext_resource path="res://theme.tres" type="Theme" id=7]
+[ext_resource path="res://Assets/Back.tres" type="StyleBox" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 86
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "NoUser"
+length = 0.5
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("NotFound:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25, 0.5 )
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 23
+font_data = ExtResource( 1 )
+
+[node name="Login" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 160, 328 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="Control" parent="."]
+anchor_top = 0.03125
+anchor_right = 1.0
+anchor_bottom = 0.15625
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Login" type="Label" parent="Logo"]
+anchor_right = 1.0
+anchor_bottom = 0.941
+margin_bottom = 3.02399
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.203922, 0.419608, 1, 1 )
+text = "Portföy"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Logo"]
+anchor_left = 0.333333
+anchor_top = 1.25
+anchor_right = 0.647365
+anchor_bottom = 2.72202
+margin_right = 311.581
+margin_bottom = 311.581
+rect_scale = Vector2( 0.376838, 0.376838 )
+texture = ExtResource( 6 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="UserName" type="LineEdit" parent="."]
+anchor_left = 0.04
+anchor_top = 0.484375
+anchor_right = 0.96
+anchor_bottom = 0.570313
+rect_pivot_offset = Vector2( 392, 56 )
+focus_mode = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+placeholder_text = "Username"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Password" type="LineEdit" parent="."]
+anchor_left = 0.04
+anchor_top = 0.578125
+anchor_right = 0.96
+anchor_bottom = 0.664063
+rect_pivot_offset = Vector2( 392, 56 )
+focus_mode = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+secret = true
+placeholder_text = "Password"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Control" parent="."]
+anchor_top = 0.710938
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Login" type="Button" parent="Button"]
+anchor_left = 0.04
+anchor_top = 0.108107
+anchor_right = 0.96
+anchor_bottom = 0.486485
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SignIn" type="Button" parent="Button"]
+anchor_left = 0.04
+anchor_top = 0.567568
+anchor_right = 0.96
+anchor_bottom = 0.891892
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 7 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+text = "Sign Up"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotFound" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.333333
+anchor_top = 0.578125
+anchor_right = 0.733333
+anchor_bottom = 0.617188
+margin_right = -9.15527e-05
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="outline_warning_white_48dp" type="Sprite" parent="NotFound"]
+position = Vector2( 0, 16 )
+texture = ExtResource( 5 )
+
+[node name="NotFound" type="Label" parent="NotFound"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 48.0
+margin_right = 24.0
+margin_bottom = 4.0
+custom_fonts/font = SubResource( 2 )
+text = "User Not Found"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/NoUser = SubResource( 3 )
+
+[node name="Dark" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.815686 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GetName" type="Popup" parent="."]
+anchor_left = 0.12
+anchor_top = 0.39
+anchor_right = 0.88
+anchor_bottom = 0.61
+margin_top = -151.36
+margin_bottom = 0.359985
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Panel" parent="GetName"]
+anchor_left = 0.0175439
+anchor_top = -0.0424403
+anchor_right = 1.01754
+anchor_bottom = 0.95756
+custom_styles/panel = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GetName"]
+anchor_left = 0.0701754
+anchor_top = 0.742706
+anchor_right = 0.929825
+anchor_bottom = 0.915119
+margin_top = -1.52588e-05
+custom_constants/separation = 23
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="Cancel" type="Button" parent="GetName/HBoxContainer"]
+margin_right = 184.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+theme = ExtResource( 7 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
+text = "Cancel"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Done" type="Button" parent="GetName/HBoxContainer"]
+margin_left = 207.0
+margin_right = 392.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+theme = ExtResource( 7 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+custom_fonts/font = SubResource( 4 )
+text = "Done"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="LineEdit" parent="GetName"]
+anchor_left = 0.122807
+anchor_top = 0.0848806
+anchor_right = 0.859649
+anchor_bottom = 0.262599
+theme = ExtResource( 7 )
+custom_fonts/font = SubResource( 5 )
+align = 1
+placeholder_text = "Name"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="User" type="LineEdit" parent="GetName"]
+anchor_left = 0.122807
+anchor_top = 0.297082
+anchor_right = 0.859649
+anchor_bottom = 0.474801
+theme = ExtResource( 7 )
+custom_fonts/font = SubResource( 5 )
+align = 1
+placeholder_text = "User Name"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Password" type="LineEdit" parent="GetName"]
+anchor_left = 0.122807
+anchor_top = 0.509284
+anchor_right = 0.859649
+anchor_bottom = 0.689655
+theme = ExtResource( 7 )
+custom_fonts/font = SubResource( 5 )
+align = 1
+placeholder_text = "Password"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="Button/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="Button/SignIn" to="." method="_on_SignIn_pressed"]
+[connection signal="pressed" from="GetName/HBoxContainer/Cancel" to="." method="_on_Cancel_pressed"]
+[connection signal="pressed" from="GetName/HBoxContainer/Done" to="." method="_on_Done_pressed"]

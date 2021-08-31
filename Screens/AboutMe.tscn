@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/AboutMe.gd" type="Script" id=1]
+[ext_resource path="res://Assets/ButtonTheme.tres" type="StyleBox" id=2]
+[ext_resource path="res://Assets/TSCN/Header.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Font/SecularOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://theme.tres" type="Theme" id=5]
+[ext_resource path="res://Assets/Back.tres" type="StyleBox" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 4 )
+
+[node name="AboutMe" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 5 )
+custom_styles/panel = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" parent="." instance=ExtResource( 3 )]
+anchor_left = 0.0133333
+anchor_top = 0.0078125
+anchor_right = 0.986667
+anchor_bottom = 0.0703125
+margin_right = 0.0
+margin_bottom = 0.0
+head = "About Me"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+anchor_left = 0.0533333
+anchor_top = 0.101563
+anchor_right = 0.946667
+anchor_bottom = 0.867188
+margin_right = -3.8147e-06
+theme = ExtResource( 5 )
+custom_styles/normal = ExtResource( 2 )
+custom_fonts/font = SubResource( 1 )
+text = "Hello!
+I would like to share about myself
+'Click and Add Text'"
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Save" type="Button" parent="."]
+anchor_left = 0.186667
+anchor_top = 0.890625
+anchor_right = 0.813333
+anchor_bottom = 0.96582
+rect_pivot_offset = Vector2( -824, -464 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+custom_fonts/font = SubResource( 2 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
