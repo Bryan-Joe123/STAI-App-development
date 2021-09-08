@@ -34,6 +34,8 @@ __meta__ = {
 [node name="Back" type="Panel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -8.0
+margin_bottom = -8.0
 theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -185,18 +187,18 @@ __meta__ = {
 }
 
 [node name="SpinBox" type="SpinBox" parent="."]
-margin_left = 24.0
-margin_top = 160.0
-margin_right = 552.0
-margin_bottom = 248.0
+anchor_left = 0.04
+anchor_top = 0.15625
+anchor_right = 0.92
+anchor_bottom = 0.242188
 theme = ExtResource( 2 )
 min_value = 40.0
-max_value = 50.0
+max_value = 70.0
 value = 40.0
 align = 1
 prefix = "FontSize:"
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [connection signal="pressed" from="Container/AboutMe" to="." method="_on_AboutMe_pressed"]

@@ -33,9 +33,6 @@ func loadInputs():
 		itemins.value = x.value
 		$Scroll/Container.add_child(itemins)
 		pass
-	var itemins = item.instance()
-	itemins.label = "Extra"
-	$Scroll/Container.add_child(itemins)
 	pass
 
 func load_data():
